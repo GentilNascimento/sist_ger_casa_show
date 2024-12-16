@@ -19,3 +19,27 @@
 
 4-Usamos: django celery beat, RabbitMQ e vamos usar o swager
 pra documentar API.
+
+
+login=vilce , senha=Gentil123456
+
+=Comandos do worker->'python manage.py rqworker --with-scheduler --worker-class rq.worker.Worker'
+ 'docker run -d -p 6379:6379 redis',  'python manage.py rqinfo'
+
+
+                     ''' (((ANTES DE ENVIAR O PROJETO, PRA PLATAFORMA E PRO CLIENTE, 'REVISAR O TIME ZONE' e
+                     o 'SECRET KEY'))) '''
+
+                    '''AJUSTAR OS  MINUTOS INICIAR SCHEDULER, após os testes'''
+
+ 
+
+
+ 
+
+Scheduler started
+Mensagem 31 criada e agendada para envio.
+Status da mensagem 31 atualizado.
+
+
+ 

@@ -2,19 +2,39 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <h2>Criar Mensagem para {{ artista.nome }}</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-success">Enviar Mensagem</button>
-            </form>
-            <a href="{% url 'lista_mensagens' artista.id %}" class="btn btn-secondary">Voltar</a>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4>Agendar Nova Mensagem</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.conteudo.id_for_label }}">Conteúdo:</label>
+                            {{ form.conteudo }}
+                            <div class="text-danger">
+                                {{ form.conteudo.errors }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.send_date.id_for_label }}">Data de Envio:</label>
+                            {{ form.send_date }}
+                            <div class="text-danger">
+                                {{ form.send_date.errors }}
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Agendar Mensagem</button>
+                            <a href="{% url 'lista_mensagens' artista.id %}"
+                                class="btn btn-secondary btn-sm custom-back-button">Voltar</a>
+                            <a href="{% url 'lista_mensagens' artista.id %}" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
-
-
- 

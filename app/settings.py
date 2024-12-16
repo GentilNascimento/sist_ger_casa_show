@@ -1,4 +1,7 @@
-import os
+'''
+configuração do django.
+'''
+import os  #modulo python p interagir c o sistema.
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a)0q_w+0dif&u6dx_#d6)5jc@0l5vpqm6ccj@79woa)%#s_-!z'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-a)0q_w+0dif&u6dx_#d6)5jc@0l5vpqm6ccj@79woa)%#s_-!z')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,17 +29,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
     'accounts',
     'artistas',
     'eventos',
-    'django_celery_beat',
+    'rest_framework',
+    'drf_yasg',  # para o swagger
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -117,7 +122,45 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#configuração do celery
-CELERY_BROKER_URL = 'amqp://localhost' #URL RabbitMQ
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+# configuração do 'APScheduler'
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # tempo limite para a execução
+     
+#config do 'logging'   
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',             
+        },
+        'file': {  # Mantém logs no arquivo
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },       
+        'apscheduler': { #configuração do scheduler
+            'handlers': ['console', 'file'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'app': {  #meu app
+            'handlers': ['console', 'file'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'artistas': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': False,
+        },         
+    },
+}
+       

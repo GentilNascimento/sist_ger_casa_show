@@ -28,6 +28,16 @@
                         {{ form.descricao }}
                     </div>
 
+                    <div class="form-group">
+                        <label for="{{ form.scheduled_date.id_for_label }}">Data Agendada:</label>
+                        {{ form.scheduled_date }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.send_date.id_for_label }}">Data de Envio:</label>
+                        {{ form.send_date }}
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
                 </form>

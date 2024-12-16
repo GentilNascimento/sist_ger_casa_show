@@ -3,19 +3,36 @@ from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-from .forms import ArtistaForm, MensagemForm
+from .forms import ArtistaForm, MessageForm
 from . import models, forms
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Artista, Mensagem
-from django.views.generic.edit import CreateView
+from .models import Artista, Message
+from rest_framework import viewsets
+from .serializers import ArtistaSerializer, MessageSerializer
+from .tasks import enviar_mensagens_agendadas, verificar_status, monitorar_mensagens
+import logging 
+ 
+
+logger = logging.getLogger(__name__)
 
 class ArtistaListView(ListView):
     model = Artista
     template_name = 'artistas_list.html'
     context_object_name = 'artistas'
-
+    
+class ArtistaViewSet(viewsets.ModelViewSet):
+    queryset = Artista.objects.all()
+    serializer_class = ArtistaSerializer
+    
+class MessageViewSet(viewsets.ModelViewSet):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+    
+    def perform_create(self, serializer):
+        message = serializer.save()
+        messages.success(self.request, 'Mensagem criada e será enviada conforme o agendamento')#confirmação
 
 @method_decorator(login_required(login_url= 'login'), name = 'dispatch')
 class ArtistaCreateView(CreateView):
@@ -25,7 +42,7 @@ class ArtistaCreateView(CreateView):
     success_url = reverse_lazy('artistas_list')
     
     def form_valid(self, form):
-        print("Formulário válido, retornando página com erros")
+        print("Formulário válido:", form.cleaned_data) 
         response = super().form_valid(form)
         messages.success(self.request, 'Artista criado com sucesso!')
         return response
@@ -56,36 +73,46 @@ def criar_mensagem(request, pk):
     artista = get_object_or_404(Artista, pk=pk)
     print("Artista encontrado:", artista.nome)
     if request.method == 'POST':
-        form = MensagemForm(request.POST)
+        form = MessageForm(request.POST)
         if form.is_valid():
-            mensagem = form.save(commit=False)
-            mensagem.artista = artista
-            mensagem.save()
-            return redirect('lista_mensagens', pk=artista.id)
+            message = form.save(commit=False)
+            message.artista = artista
+            print("Data de envio:", message.send_date)  # Verifica o valor da data
+            try:
+                message.save() #tenta salvar msg 
+                   
+                messages.success(request, 'Mensagem enviada com sucesso!') #msg de sucesso
+                logger.info(f"Mensagem {message.id} criada e agendada para envio.")
+                return redirect('lista_mensagens', pk=artista.id)
+            except Exception as e:   #captura qualquer exceção
+                logger.error(f"Erro ao criar e agendar mensagem {message.id}: {str(e)}")
+                messages.error(request, 'Erro ao criar a mensagem. Tente novamente.') #msg de erro
+        else:
+            messages.error(request, 'Erro nos dados do formulário. Verifique e tente novamente.') #Msg de erro no form
     else:
-        form = MensagemForm()
+        form = MessageForm()
     return render(request, 'mensagens/criar_mensagem_para_artista.html', {'form': form, 'artista': artista})
    
 def lista_mensagens(request, pk):
     artista = get_object_or_404(Artista, pk=pk)
-    mensagens = Mensagem.objects.filter(artista=artista)  
+    mensagens = Message.objects.filter(artista=artista)  
     return render(request, 'mensagens/lista_mensagens.html', {'artista': artista, 'mensagens': mensagens})
 
 def editar_mensagem(request, pk):
-    mensagem = get_object_or_404(Mensagem, pk=pk)
+    message = get_object_or_404(Message, pk=pk)
     if request.method == 'POST':
-        form = MensagemForm(request.POST, instance=mensagem)
+        form = MessageForm(request.POST, instance=message)
         if form.is_valid():
             form.save()
-            return redirect('lista_mensagens', pk=mensagem.artista.id)
+            return redirect('lista_mensagens', pk=message.artista.id)
     else:
-        form = MensagemForm(instance=mensagem)
-    return render(request, 'mensagens/editar_mensagem.html', {'form': form, 'mensagem': mensagem})
+        form = MessageForm(instance=message)
+    return render(request, 'mensagens/editar_mensagem.html', {'form': form, 'mensagem': message})
    
 def deletar_mensagem(request, pk):
-    mensagem = get_object_or_404(Mensagem, pk=pk)
+    message = get_object_or_404(Message, pk=pk)
     if request.method == 'POST':
-        mensagem.delete()
-        return redirect('lista_mensagens', pk=mensagem.artista.id)
-    return render(request, 'mensagens/deletar_mensagem.html', {'mensagem': mensagem})
+        message.delete()
+        return redirect('lista_mensagens', pk=message.artista.id)
+    return render(request, 'mensagens/deletar_mensagem.html', {'mensagem': message})
      

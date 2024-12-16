@@ -1,7 +1,7 @@
 from django import forms
 from validate_docbr import CPF
 from . import models
-from .models import Artista, Mensagem
+from .models import Artista, Message
 
 class ArtistaForm(forms.ModelForm):
     class Meta:
@@ -14,6 +14,7 @@ class ArtistaForm(forms.ModelForm):
             'banco': forms.TextInput(attrs={'class': 'form-control'}),
             'tipo_chave_pix': forms.Select(attrs={'class': 'form-control'}),
             'chave_pix': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),            
         }
         
     
@@ -25,11 +26,11 @@ class ArtistaForm(forms.ModelForm):
             raise forms.ValidationError('CPF inválido.')
         return cpf
 
-class MensagemForm(forms.ModelForm):
+class MessageForm(forms.ModelForm):
     class Meta:
-        model = Mensagem
-        fields = ['conteudo', 'data_envio']
+        model = Message
+        fields = ['conteudo', 'send_date']
         widgets = {
-            'data_envio': forms.DateInput(attrs={'type': 'date'}),
+            'send_date': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control',}),
             'conteudo': forms.Textarea(attrs={'class': 'form-control'}),
         }
