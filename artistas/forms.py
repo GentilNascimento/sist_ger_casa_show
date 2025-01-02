@@ -17,8 +17,7 @@ class ArtistaForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control'}),            
         }
         
-    
-    
+       
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
         cpf_validator = CPF()
@@ -27,10 +26,19 @@ class ArtistaForm(forms.ModelForm):
         return cpf
 
 class MessageForm(forms.ModelForm):
+    send_date = forms.DateTimeField(
+        input_formats=['%Y-%m-%dT%H:%M:%S'],
+        widget=forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'})
+    )
     class Meta:
         model = Message
         fields = ['conteudo', 'send_date']
         widgets = {
-            'send_date': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control',}),
             'conteudo': forms.Textarea(attrs={'class': 'form-control'}),
         }
+        
+    def clean_send_date(self):
+        send_date = self.cleaned_data.get('send_date')
+        if send_date.year < 1000 or send_date.year > 9999:
+            raise forms.ValidationError('O ano deve ter exatamente 4 dígitos.')
+        return send_date

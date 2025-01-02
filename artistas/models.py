@@ -1,7 +1,7 @@
 import logging
 from django.db import models
 from django.utils import timezone
- 
+from django.core.exceptions import ValidationError
 
 logger = logging.getLogger('artistas')
 
@@ -54,6 +54,16 @@ class Message(models.Model):
     send_date = models.DateTimeField(default=timezone.now, verbose_name="Data de Envio")
     sent = models.BooleanField(default=False, verbose_name="Enviada")
     
+    def clean(self):
+        super().clean()
+        if self.send_date.year < 1000 or self.send_date.year > 9999:
+            raise ValidationError({'send_date': "O ano deve ter exatamente 4 dígitos."}) 
+        
+    def save(self, *args, **kwargs):
+        self.full_clean()  # Chama o método clean() para validação
+        super().save(*args, **kwargs)
+
+    
     def __str__(self):
         return f"Mensagem para {self.artista.nome} agendada para {self.send_date}"
     #A mensagem deve ser enviada se a data de envio é menor ou igual ao horário atual
@@ -64,9 +74,8 @@ class Message(models.Model):
     #lógica de envio das msg.
     def enviar(self):
         if self.sent:
-             return  #impede o reenvio        
+            return  #impede o reenvio        
         try:
-            #logger.info(f"Iniciando envio mensagem ID {self.id} para o artista {self.artista.nome}.")
             #Simula o envio da msg
             self.sent = True   #atualiza o status p envio
             self.save()   #persiste a alteração no Bd

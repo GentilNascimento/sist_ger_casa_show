@@ -27,9 +27,8 @@ def enviar_mensagens_agendadas():
                 # Verifica e envia a mensagem programada
                 if message.deve_enviar():
                     message.enviar()  #simula envio da msg 
-                    logger.info(f"Mensagem {message.id} enviada com sucesso para o artista {artista.nome}.")                    
             except Exception as e:                 
-                logger.error(f"Erro ao enviar mensagem {message.id} para o artista {artista.nome}: {e}")  
+                logger.error(f"Erro ao enviar mensagem {message.id} para o artista {artista.id}: {e}")  
                 
                
 def monitorar_mensagens():
@@ -61,10 +60,8 @@ def verificar_status():
             if message.deve_ser_atualizado():
                 message.atualizar_status()
                 message.save()
-                logger.info(f"Status da mensagem {message.id} atualizado.")
-
+                
  
-
 def iniciar_scheduler():
     # Verifica se o sistema está em modo de 
       

@@ -23,9 +23,7 @@ pra documentar API.
 
 login=vilce , senha=Gentil123456
 
-=Comandos do worker->'python manage.py rqworker --with-scheduler --worker-class rq.worker.Worker'
- 'docker run -d -p 6379:6379 redis',  'python manage.py rqinfo'
-
+ 
 
                      ''' (((ANTES DE ENVIAR O PROJETO, PRA PLATAFORMA E PRO CLIENTE, 'REVISAR O TIME ZONE' e
                      o 'SECRET KEY'))) '''

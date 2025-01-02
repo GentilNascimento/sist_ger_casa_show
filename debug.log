@@ -8658,3 +8658,174 @@ Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at
 Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 17:27:04 AEDT)" (scheduled at 2024-12-16 17:26:04.792132+11:00)
 Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 17:27:04 AEDT)" executed successfully
 Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 17:27:04 AEDT)" executed successfully
+Scheduler started
+Scheduler started
+Mensagem 34 criada e agendada para envio.
+Mensagem ID 34 enviada com sucesso para o artista Wesley Safadão.
+Mensagem 34 enviada com sucesso para o artista Wesley Safadão.
+Scheduler started
+Scheduler started
+Mensagem 35 criada e agendada para envio.
+Status da mensagem 35 atualizado.
+Mensagem ID 35 enviada com sucesso para o artista Gustavo lima.
+Mensagem 35 enviada com sucesso para o artista Gustavo lima.
+Scheduler started
+Scheduler started
+Mensagem 36 criada e agendada para envio.
+Mensagem ID 36 enviada com sucesso para o artista Léo Santana.
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 18:36:23 AEDT)" (scheduled at 2024-12-16 18:35:23.244400+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 18:36:23 AEDT)" (scheduled at 2024-12-16 18:35:23.244400+11:00)
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 18:36:23 AEDT)" executed successfully
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 18:36:23 AEDT)" executed successfully
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 18:37:23 AEDT)" (scheduled at 2024-12-16 18:36:23.244400+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 18:37:23 AEDT)" (scheduled at 2024-12-16 18:36:23.244400+11:00)
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 18:37:23 AEDT)" executed successfully
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 18:37:23 AEDT)" executed successfully
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 18:38:23 AEDT)" (scheduled at 2024-12-16 18:37:23.244400+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 18:38:23 AEDT)" (scheduled at 2024-12-16 18:37:23.244400+11:00)
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-16 18:38:23 AEDT)" executed successfully
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-16 18:38:23 AEDT)" executed successfully
+Scheduler started
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-17 09:02:51 AEDT)" (scheduled at 2024-12-17 09:01:51.954077+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-17 09:01:51 AEDT)" (scheduled at 2024-12-17 09:01:51.954622+11:00)
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-17 09:02:51 AEDT)" executed successfully
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-17 09:02:51 AEDT)" executed successfully
+Scheduler started
+Scheduler started
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3175
+Mensagem 37 criada e agendada para envio.
+Mensagem ID 37 enviada com sucesso para o artista Gustavo lima.
+Scheduler started
+Mensagem 38 criada e agendada para envio.
+Mensagem ID 38 enviada com sucesso para o artista Gustavo lima.
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler started
+Mensagem 39 criada e agendada para envio.
+Mensagem ID 39 enviada com sucesso para o artista Léo Santana.
+Mensagem ID 1 enviada com sucesso para o artista Artista Teste.
+Mensagem ID 1 enviada com sucesso para o artista Artista Teste.
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Mensagem ID 1 enviada com sucesso para o artista Artista Teste.
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler started
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3175
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:36:40 AEDT)" (scheduled at 2024-12-19 16:35:40.828904+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:35:40 AEDT)" (scheduled at 2024-12-19 16:35:40.831453+11:00)
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:36:40 AEDT)" executed successfully
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:36:40 AEDT)" executed successfully
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:37:40 AEDT)" (scheduled at 2024-12-19 16:36:40.828904+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:37:40 AEDT)" (scheduled at 2024-12-19 16:36:40.831453+11:00)
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:37:40 AEDT)" executed successfully
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:37:40 AEDT)" executed successfully
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:38:40 AEDT)" (scheduled at 2024-12-19 16:37:40.828904+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:38:40 AEDT)" (scheduled at 2024-12-19 16:37:40.831453+11:00)
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:38:40 AEDT)" executed successfully
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:38:40 AEDT)" executed successfully
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:39:40 AEDT)" (scheduled at 2024-12-19 16:38:40.828904+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:39:40 AEDT)" (scheduled at 2024-12-19 16:38:40.831453+11:00)
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:39:40 AEDT)" executed successfully
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:39:40 AEDT)" executed successfully
+Scheduler started
+Scheduler started
+Running job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:41:23 AEDT)" (scheduled at 2024-12-19 16:40:23.173446+11:00)
+Running job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:41:23 AEDT)" (scheduled at 2024-12-19 16:40:23.176413+11:00)
+Job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 16:41:23 AEDT)" executed successfully
+Job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 16:41:23 AEDT)" executed successfully
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Run time of job "enviar_mensagens_agendadas (trigger: interval[0:01:00], next run at: 2024-12-19 17:56:51 AEDT)" was missed by 0:00:30.412889
+Run time of job "verificar_status (trigger: interval[0:01:00], next run at: 2024-12-19 17:56:51 AEDT)" was missed by 0:00:30.412889
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Scheduler started
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3175

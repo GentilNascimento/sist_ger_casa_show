@@ -12,3 +12,6 @@ class MessageAdmin(admin.ModelAdmin):
     list_filter = ('sent', 'send_date')
     search_fields = ('artista__nome', 'conteudo')
     
+    def save_model(self, request, obj, form, change):
+        obj.full_clean()  # Garante que a validação do método clean seja aplicada
+        super().save_model(request, obj, form, change)

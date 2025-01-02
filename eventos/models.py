@@ -22,4 +22,4 @@ class Evento(models.Model):
         return self.data.strftime('%d-%m-%Y')
 
     def formatted_horario(self):
-        return self.horario.strftime('%H-%M')
+        return self.horario.strftime('%H:%M')

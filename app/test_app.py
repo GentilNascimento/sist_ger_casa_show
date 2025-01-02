@@ -36,7 +36,7 @@ class HomeViewTests(TestCase):
         #cria um evento associado ao artista criado
         Evento.objects.create(
             artista=self.artista,
-            data='2024-12-13', 
+            data='2024-12-18', 
             horario='18:00', 
             descricao='Evento Teste'
         )

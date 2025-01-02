@@ -34,7 +34,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         message = serializer.save()
         messages.success(self.request, 'Mensagem criada e será enviada conforme o agendamento')#confirmação
 
-@method_decorator(login_required(login_url= 'login'), name = 'dispatch')
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class ArtistaCreateView(CreateView):
     model = Artista
     template_name = 'artista_create.html'
@@ -56,7 +56,7 @@ class ArtistaDetailView(DetailView):
     template_name = 'artista_detail.html'
     context_object_name = 'artista'
 
-@method_decorator(login_required(login_url= 'login'), name = 'dispatch')
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class ArtistaUpdateView(UpdateView):
     model = Artista
     template_name = 'artista_update.html'
@@ -71,17 +71,18 @@ class ArtistaDeleteView(DeleteView):
     
 def criar_mensagem(request, pk):
     artista = get_object_or_404(Artista, pk=pk)
-    print("Artista encontrado:", artista.nome)
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
             message = form.save(commit=False)
+            if message.send_date.year < 1000 or message.send_date.year > 9999:
+                messages.error(request, 'Ano inválido. Por favor, insira um ano válido.')
+                return render(request, 'mensagens/criar_mensagem_para_artista.html', {'form': form, 'artista': artista})
             message.artista = artista
-            print("Data de envio:", message.send_date)  # Verifica o valor da data
             try:
                 message.save() #tenta salvar msg 
                    
-                messages.success(request, 'Mensagem enviada com sucesso!') #msg de sucesso
+                messages.success(request, 'Mensagem enviada com sucesso!')#msg de sucesso
                 logger.info(f"Mensagem {message.id} criada e agendada para envio.")
                 return redirect('lista_mensagens', pk=artista.id)
             except Exception as e:   #captura qualquer exceção
