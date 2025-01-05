@@ -22,5 +22,7 @@
 
 10-Fazer login na página do django.
 
-11-Usamos: django celery beat, RabbitMQ e vamos usar o swager
-pra documentar API.
+11-Usamos: APScheduler para controlar as msgs pois é suficiente para esse
+projeto, e o swager para documentar API.
+
+(O projeto ainda não está pronto, estou finalizando, e organizando o Readme.
