@@ -8829,3 +8829,24 @@ Scheduler started
 Scheduler started
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 3175
+Scheduler started
+Mensagem ID 1 enviada com sucesso para o artista Artista Teste.
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Mensagem ID 1 enviada com sucesso para o artista Artista Teste.
+Mensagem ID 1 enviada com sucesso para o artista Artista 1.
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Scheduler started
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler has been shut down
+APScheduler iniciado para tarefas de mensagens e verificação de status.
+Scheduler started
+Mensagem 40 criada e agendada para envio.
+Mensagem ID 40 enviada com sucesso para o artista Léo Santana.
+Scheduler started

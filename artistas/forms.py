@@ -38,7 +38,5 @@ class MessageForm(forms.ModelForm):
         }
         
     def clean_send_date(self):
-        send_date = self.cleaned_data.get('send_date')
-        if send_date.year < 1000 or send_date.year > 9999:
-            raise forms.ValidationError('O ano deve ter exatamente 4 dígitos.')
-        return send_date
+         
+        return self.cleaned_data.get('send_date')

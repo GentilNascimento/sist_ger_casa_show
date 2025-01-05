@@ -75,14 +75,10 @@ def criar_mensagem(request, pk):
         form = MessageForm(request.POST)
         if form.is_valid():
             message = form.save(commit=False)
-            if message.send_date.year < 1000 or message.send_date.year > 9999:
-                messages.error(request, 'Ano inválido. Por favor, insira um ano válido.')
-                return render(request, 'mensagens/criar_mensagem_para_artista.html', {'form': form, 'artista': artista})
-            message.artista = artista
+            message.artista = artista           
             try:
-                message.save() #tenta salvar msg 
-                   
-                messages.success(request, 'Mensagem enviada com sucesso!')#msg de sucesso
+                message.save() #tenta salvar msg                    
+                messages.success(request, 'Mensagem criada com sucesso!')#msg de sucesso
                 logger.info(f"Mensagem {message.id} criada e agendada para envio.")
                 return redirect('lista_mensagens', pk=artista.id)
             except Exception as e:   #captura qualquer exceção

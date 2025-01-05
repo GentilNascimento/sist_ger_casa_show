@@ -40,4 +40,8 @@ Mensagem 31 criada e agendada para envio.
 Status da mensagem 31 atualizado.
 
 
- 
+ settings.
+ wsgi.py ou asgi.py
+ urls.py
+ requirements.txt
+ manage.py

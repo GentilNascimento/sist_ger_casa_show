@@ -20,10 +20,11 @@
                         </div>
                         <div class="form-group">
                             <label for="{{ form.send_date.id_for_label }}">Data de Envio:</label>
-                            {{ form.send_date }}
-                            <div class="text-danger">
-                                {{ form.send_date.errors }}
-                            </div>
+                            <input type="datetime-local" id="{{ form.send_date.id_for_label }}" name="{{ form.send_date.html_name }}" 
+                            class="form-control" min="1000-01-01T00:00" max="9999-12-31T23:59" value="{{ form.send_date.value }}">
+                        <div class="text-danger">
+                            {{ form.send_date.errors }}
+                        </div>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success">Agendar Mensagem</button>

@@ -10,7 +10,7 @@ from artistas.tasks import (
     scheduler,
 )
 from artistas.models import Artista, Message
-
+from datetime import datetime
 
 
 @pytest.mark.django_db
@@ -35,12 +35,16 @@ def test_monitorar_mensagens(mock_logger, mock_all_artistas, mock_filter):
     mock_artista.id = 1
     mock_all_artistas.return_value = [mock_artista]  # Simulando que temos 1 artista
     mock_filter.return_value = [mock_message]  # Simulando que temos uma mensagem para enviar
+    
+    from artistas.tasks import monitorar_mensagens
+    monitorar_mensagens()
 
     # Chamando a função de envio de mensagens
     enviar_mensagens_agendadas()
 
     # Verificando se o filtro foi chamado corretamente
-    mock_filter.assert_called_once_with(artista=mock_artista, send_date__lte=agora, sent=False)
+    mock_filter.assert_called_once_with(
+        artista=mock_artista, send_date__lte=agora, sent=False)
 
     # Verificando se o logger foi chamado
     mock_logger.error.assert_called_once_with(
