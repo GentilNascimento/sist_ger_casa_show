@@ -59,7 +59,12 @@
                                 {{ form.chave_pix.errors }}
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">E-mail:</label>
+                            {{ form.email }}
+                            <div class="text-danger">
+                                {{ form.email.errors }}
+                            </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success">Salvar Alterações</button>
                             <a href="{% url 'artistas_list' %}" class="btn btn-secondary">Cancelar</a>

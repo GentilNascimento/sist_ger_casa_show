@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .api import ArtistaViewSet
 from . import views
  
+ 
 
 
 

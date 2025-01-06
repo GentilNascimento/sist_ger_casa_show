@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+ 
 
 
 class EventosConfig(AppConfig):
@@ -7,3 +8,5 @@ class EventosConfig(AppConfig):
 
     def ready(self):
         import eventos.signals
+        
+ 

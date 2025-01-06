@@ -18,6 +18,7 @@
 
 8-Criado as pastas (accounts, artistas, eventos) como aplicativos.
 
+<<<<<<< HEAD
 9-Rodar o projeto: Python manage.py runserver.
 
 10-Fazer login na página do django.
@@ -26,3 +27,33 @@
 projeto, e o swager para documentar API.
 
 (O projeto ainda não está pronto, estou finalizando, e organizando o Readme.
+=======
+4-Usamos: django celery beat, RabbitMQ e vamos usar o swager
+pra documentar API.
+
+
+login=vilce , senha=Gentil123456
+
+ 
+
+                     ''' (((ANTES DE ENVIAR O PROJETO, PRA PLATAFORMA E PRO CLIENTE, 'REVISAR O TIME ZONE' e
+                     o 'SECRET KEY'))) '''
+
+                    '''AJUSTAR OS  MINUTOS INICIAR SCHEDULER, após os testes'''
+
+ 
+
+
+ 
+
+Scheduler started
+Mensagem 31 criada e agendada para envio.
+Status da mensagem 31 atualizado.
+
+
+ settings.
+ wsgi.py ou asgi.py
+ urls.py
+ requirements.txt
+ manage.py
+>>>>>>> penuajuste

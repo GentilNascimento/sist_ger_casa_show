@@ -9,6 +9,13 @@
                     <h4>Login</h4>
                 </div>
                 <div class="card-body">
+                    {% if mensagens %}
+                        <div class="alert alert-danger">
+                            {% for mensagem in mensagens %}
+                                <p>{{ mensagem }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     <form method="post" novalidate>
                         {% csrf_token %}
                         <div class="form-group">

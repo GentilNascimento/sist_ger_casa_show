@@ -8,16 +8,18 @@ class Evento(models.Model):
     data = models.DateField()
     horario = models.TimeField()
     descricao = models.TextField(null=True, blank=True)
+    scheduled_date = models.DateTimeField(null=True, blank=True)
+    send_date = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['data']
 
 
     def __str__(self):
-        return self.artista.nome
+        return f"{self.artista.nome} - {self.formatted_data()} {self.formatted_horario()}"
 
     def formatted_data(self):
         return self.data.strftime('%d-%m-%Y')
 
     def formatted_horario(self):
-        return self.horario.strftime('%H-%M')
+        return self.horario.strftime('%H:%M')
