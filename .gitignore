@@ -13,3 +13,4 @@ test_
 .pytest_cache/
 Celery
 celerybeat-schedule
+*.pyc 
