@@ -14,4 +14,4 @@ test_
 Celery
 celerybeat-schedule
 *.pyc 
-dhenv
+dhenv/
