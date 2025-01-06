@@ -1,13 +1,9 @@
 ✌️Nome do Projeto: APP (Sistema de gerenciamento casa de shows)
 
-<<<<<<< HEAD
 1-Criamos um controle de cadastro de pessoas, com os campos de: 
 'nome','cpf', 'telefone', 'banco', 'chave pix', 'tipo chave'
 'criar msgs', e-mail.
-=======
-1-Criamos um controle de cadastro de pessoas, com os campos de: 'nome','cpf', 'telefone', 'banco', 'chave pix', 'tipo chave' 'criar msgs', e-mail.
->>>>>>> origin/penuajuste
-
+ 
 2-Agendamento de: mensagens p watsap, e data e hora.
 
 3-Todo dia a meia noite, o sistema faz uma varredura nas msgs.
