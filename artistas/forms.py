@@ -1,5 +1,4 @@
 from django import forms
-from validate_docbr import CPF
 from . import models
 from .models import Artista, Message
 
@@ -16,18 +15,9 @@ class ArtistaForm(forms.ModelForm):
             'chave_pix': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),            
         }
-        
-       
-    def clean_cpf(self):
-        cpf = self.cleaned_data.get('cpf')
-        cpf_validator = CPF()
-        if not cpf_validator.validate(cpf):
-            raise forms.ValidationError('CPF inválido.')
-        return cpf
-
 class MessageForm(forms.ModelForm):
     send_date = forms.DateTimeField(
-        input_formats=['%Y-%m-%dT%H:%M:%S'],
+        input_formats=['%Y-%m-%dT%H:%M:'],
         widget=forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'})
     )
     class Meta:
@@ -36,7 +26,3 @@ class MessageForm(forms.ModelForm):
         widgets = {
             'conteudo': forms.Textarea(attrs={'class': 'form-control'}),
         }
-        
-    def clean_send_date(self):
-         
-        return self.cleaned_data.get('send_date')

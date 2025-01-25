@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <h2 class="mb-4">Lista de Artistas</h2>
             <a href="{% url 'artista_create' %}" class="btn btn-success mb-3">Adicionar Novo Artista</a>
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped table-artistas">
                 <thead class="thead-dark">
                     <tr>
                         <th>Nome</th>
@@ -29,9 +29,12 @@
                         <td>{{ artista.chave_pix }}</td>                        
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{% url 'artista_update' artista.id %}" class="btn btn-warning btn-sm">Editar</a>
-                                <a href="{% url 'artista_delete' artista.id %}" class="btn btn-danger btn-sm">Excluir</a>
-                                <a href="{% url 'artista_detail' artista.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                                <!-- <a href="{% url 'artista_update' artista.id %}" class="btn btn-warning btn-sm">Editar</a> -->
+                                <form method="post" action="{% url 'artista_delete' artista.id %}" style="display: inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Excluir</button>                                  
+                                </form> 
+                                <a href="{% url 'artista_detail' artista.id %}" class="btn btn-secondary btn-sm">Detalhes</a>
                                 <a href="{% url 'lista_mensagens' artista.id %}" class="btn btn-primary btn-sm">Mensagens</a>
                             </div>
                         </td>

@@ -5,14 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Gestão Dh{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
     <style>
+
+        body {
+            background-color: #343a40;
+            color: white;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: black !important;
+            text-align: center;
+            padding: 1rem 0;
+            color: white;
+        } 
+   
         .navbar-custom {
             background-color: rgb(2, 130, 2); 
         }
-        .footer-custom {
-            background-color: #f8f9fa;
-            padding: 1rem 0;
-        }
+
         .container-custom {
             max-width: 1140px;
             margin: auto;
@@ -73,6 +98,47 @@
         .artist-name {
             color: red;
         }
+
+        .form-custom {
+            background-color: #76c7b7;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        } 
+
+        .form-custom input,
+        .form-custom textarea,
+        .form-custom select {
+            background-color: #76c7b7;
+            color: white;
+            border: 1px solid #5aa89a;
+            margin-left: 1rem;
+        }
+
+        .form-custom label {
+            margin-left: 1rem;
+        }
+
+        .table-custom {
+            background-color: #76c7b7;
+            color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .table-custom th,
+        .table-custom td {
+            color: white;
+            border: 1px solid #5aa89a;
+        }
+
+        .table-artistas {
+            background-color: #5aa89a;             
+        }
+
+        .table-artistas th, 
+        .table-artistas td {
+            background-color: #5aa89a;             
+        }
     </style>
 </head>
 <body>
@@ -97,6 +163,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'evento_create' %}">Criar Evento</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'anotacoes' %}">Anotações</a>
+                    </li>
                 {% endif %}
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -120,7 +189,7 @@
     <div class="container container-custom mt-4">
         <div class="welcome-banner">
             <h3>Bem-vindo ao Gestão Dh!</h3>
-            <p>Confira os eventos mais próximos abaixo.</p>
+            <!-- <p>Confira os eventos mais próximos abaixo.</p>
         </div>
     </div>
 
@@ -150,8 +219,8 @@
         {% else %}
             <p>Nenhum evento próximo encontrado.</p>
         {% endif %}
-    </div>
-    {% endif %}
+    </div> -->
+    {% endif %} 
 
     <main class="container container-custom mt-4">
         {% block content %}
@@ -167,6 +236,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
 </body>
 </html>
  

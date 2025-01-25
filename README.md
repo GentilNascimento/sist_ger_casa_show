@@ -15,33 +15,7 @@
 
 2-Ambiente virtual: (dhenv).
 
-3-Criado as pastas (accounts, artistas, eventos) como aplicativos.
+3-Criado as pastas (accounts, artistas, eventos) e (app) como aplicativo principal.
 
-4-Usamos: django celery beat, RabbitMQ e vamos usar o swager
+4-Usamos: APScheduler para controle de msg, e vamos usar o swager
 pra documentar API.
-
-
-login=vilce , senha=Gentil123456
-
- 
-
-                     ''' (((ANTES DE ENVIAR O PROJETO, PRA PLATAFORMA E PRO CLIENTE, 'REVISAR O TIME ZONE' e
-                     o 'SECRET KEY'))) '''
-
-                    '''AJUSTAR OS  MINUTOS INICIAR SCHEDULER, após os testes'''
-
- 
-
-
- 
-
-Scheduler started
-Mensagem 31 criada e agendada para envio.
-Status da mensagem 31 atualizado.
-
-
- settings.
- wsgi.py ou asgi.py
- urls.py
- requirements.txt
- manage.py

@@ -5,7 +5,7 @@
         <h1 class="my-4">Cadastrar Novo Evento</h1>
         <div class="card">
             <div class="card-body">
-                <form method="post">
+                <form class="form-custom" method="post">
                     {% csrf_token %}
 
                     <div class="form-group">
@@ -13,9 +13,14 @@
                         {{ form.artista }}
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="{{ form.data.id_for_label }}">Data:</label>
                         {{ form.data }}
+                    </div> -->
+
+                    <div class="form-group">
+                        <label for="{{ form.scheduled_date.id_for_label }}">Data Agendada:</label>
+                        {{ form.scheduled_date }}
                     </div>
 
                     <div class="form-group">
@@ -26,16 +31,6 @@
                     <div class="form-group">
                         <label for="{{ form.descricao.id_for_label }}">Descrição:</label>
                         {{ form.descricao }}
-                    </div>
-
-                    <div class="form-group">
-                        <label for="{{ form.scheduled_date.id_for_label }}">Data Agendada:</label>
-                        {{ form.scheduled_date }}
-                    </div>
-
-                    <div class="form-group">
-                        <label for="{{ form.send_date.id_for_label }}">Data de Envio:</label>
-                        {{ form.send_date }}
                     </div>
 
                     <button type="submit" class="btn btn-primary">Salvar</button>
