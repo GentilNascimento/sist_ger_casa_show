@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Anotações</h2>
+    <div class="d-flex justify-content-between">
+        <!-- Editor 1 -->
+        <div style="width: 48%; margin-top: 20px;">
+            <div id="toolbar1"></div> <!-- Barra de ferramentas do Editor 1 -->
+            <div id="editor1" style="height: 600px; border: 6px solid #ccc;"></div>
+        </div>                     
+        <!-- Editor 2 -->
+        <div style="width: 48%; margin-top: 20px;">
+            <div id="toolbar2"></div> <!-- Barra de ferramentas do Editor 2 -->
+            <div id="editor2" style="height: 600px; border: 6px solid #ccc;"></div>
+        </div>
+    </div>   
+</div>
+
+<script>
+    // Inicializar o editor1 Quill
+    document.addEventListener('DOMContentLoaded', function() {
+        var quill1 = new Quill('#editor1', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline', 'strike'],  // Estilos de texto
+                    ['link', 'image'],                         // Links e imagens
+                    [{ 'size': ['small', false, 'large', 'huge'] }], // Tamanhos de fonte
+                    [{ 'color': [] }, { 'background': [] }],   // Cores de texto e fundo
+                    [{ 'align': [] }],                         // Alinhamento
+                    ['clean']                                  // Remover formatação
+                ]
+            }
+        });
+        // Recuperar conteúdo salvo no Local Storage Editor1
+        var savedContent1 = localStorage.getItem('editor1Content');
+        if (savedContent1) {
+            quill1.root.innerHTML = savedContent1;
+        }
+
+        // Salvar conteúdo automaticamente no Local Storage Editor1
+        quill1.on('text-change', function() {
+            localStorage.setItem('editor1Content', quill1.root.innerHTML);
+        });
+
+        // Inicializar o Editor2 Quill
+        var quill2 = new Quill('#editor2', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline', 'strike'],
+                    ['link', 'image'],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'align': [] }],
+                    ['clean']
+                ]
+            }
+        });
+
+        // Recuperar conteúdo salvo do Local Storage para o Editor 2
+        var savedContent2 = localStorage.getItem('editor2Content');
+        if (savedContent2) {
+            quill2.root.innerHTML = savedContent2;
+        }
+
+        // Salvar alterações automaticamente no Local Storage para o Editor 2
+        quill2.on('text-change', function() {
+            localStorage.setItem('editor2Content', quill2.root.innerHTML);
+        });
+    });
+</script>
+{% endblock %}

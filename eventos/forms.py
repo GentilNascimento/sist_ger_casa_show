@@ -5,27 +5,15 @@ from artistas.models import Artista
 class EventoForm(forms.ModelForm):
     class Meta:
         model = Evento
-        fields = ['artista', 'data', 'horario', 'descricao', 'scheduled_date', 'send_date']
+        fields = ['artista', 'horario', 'descricao', 'scheduled_date']
         widgets = {
             'artista': forms.Select(attrs={'class': 'form-control'}),
-            'data': forms.DateInput(attrs={'type': 'date'}),
             'horario': forms.TimeInput(attrs={'type': 'time'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': 2}),
-            'scheduled_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'send_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'scheduled_date': forms.DateInput(attrs={'type': 'date', 'min': '1000-01-01', 'max': '9999-12-31'}),
         }
-        labels ={
-            'data': 'Data do Evento',
+        labels = {
             'horario': 'Horário do Evento',
             'descricao': 'Descrição',
             'scheduled_date': 'Data Agendada',
-            'send_date': 'Data de Envio',           
         }
-        
-        
-        
-        
-        
-        
-        
-                     

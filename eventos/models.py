@@ -1,16 +1,18 @@
+from wsgiref import validate
 from django.db import models
 from artistas.models import Artista
+ 
 
 
+ 
 class Evento(models.Model):
 
     artista = models.ForeignKey(Artista, on_delete=models.CASCADE)
-    data = models.DateField()
+    data = models.DateField(auto_now_add=True)
     horario = models.TimeField()
     descricao = models.TextField(null=True, blank=True)
-    scheduled_date = models.DateTimeField(null=True, blank=True)
-    send_date = models.DateTimeField(null=True, blank=True)
-
+    scheduled_date = models.DateField(null=True, blank=True)
+ 
     class Meta:
         ordering = ['data']
 

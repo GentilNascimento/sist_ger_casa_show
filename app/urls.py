@@ -8,6 +8,7 @@ from eventos.models import Evento
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from .views import anotacoes_view
  
 #Documentação da API
 schema_view = get_schema_view(
@@ -46,4 +47,5 @@ urlpatterns = [
     path('eventos/', include('eventos.urls')),
     path('artistas/', include('artistas.urls')),
     path('', HomeView.as_view(), name='home'),
- ]
+    path('anotacoes/', anotacoes_view, name='anotacoes'),
+]

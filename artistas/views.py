@@ -1,3 +1,4 @@
+from sqlite3 import IntegrityError
 from django.contrib import messages
 from django.forms import BaseModelForm
 from django.http import HttpResponse
@@ -13,6 +14,7 @@ from rest_framework import viewsets
 from .serializers import ArtistaSerializer, MessageSerializer
 from .tasks import enviar_mensagens_agendadas, verificar_status, monitorar_mensagens
 import logging 
+from django.db import IntegrityError
  
 
 logger = logging.getLogger(__name__)
@@ -42,10 +44,17 @@ class ArtistaCreateView(CreateView):
     success_url = reverse_lazy('artistas_list')
     
     def form_valid(self, form):
-        print("Formulário válido:", form.cleaned_data) 
-        response = super().form_valid(form)
-        messages.success(self.request, 'Artista criado com sucesso!')
-        return response
+        try:
+            logger.debug(f"Dados do formulário: {form.cleaned_data}") 
+            self.object = form.save()              
+            messages.success(
+                self.request,
+                f'Artista "{self.object.nome}" criado com sucesso em {self.object.created_at.strftime("%d/%m/%Y %H:%M:")}!'
+            )
+            return super().form_valid(form)
+        except IntegrityError as e:
+            messages.error(self.request, 'Erro: CPF ou Email já cadastrados.')
+            return self.render_to_response(self.get_context_data(form=form))
     
     def form_invalid(self, form):  
         messages.error(self.request, 'Erro ao criar artista. Verifique os dados e tente novamente.')
@@ -61,13 +70,13 @@ class ArtistaUpdateView(UpdateView):
     model = Artista
     template_name = 'artista_update.html'
     form_class = forms.ArtistaForm
-    success_url = reverse_lazy('artista_list')
+    success_url = reverse_lazy('artistas_list')
 
 @method_decorator(login_required (login_url='login'), name='dispatch')
 class ArtistaDeleteView(DeleteView):
     model = Artista
     template_name = 'artista_delete.html'
-    success_url = reverse_lazy('artista_list')
+    success_url = reverse_lazy('artistas_list')
     
 def criar_mensagem(request, pk):
     artista = get_object_or_404(Artista, pk=pk)

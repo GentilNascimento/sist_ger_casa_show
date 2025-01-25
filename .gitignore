@@ -3,7 +3,6 @@ env/
 __pycache__/
 dist/
 build/
-db.sqlite3
 staticfiles
 coverage reports
 .coverage 
@@ -15,3 +14,28 @@ celery
 celerybeat-schedule
 dhenv/
 .env
+
+
+
+
+
+login=gentil, senha=123vilce
+(dhenv) PS C:\Users\genti\OneDrive\Documentos\gestao_eventos> git merge ultimos-ajustes 
+Auto-merging .gitignore
+CONFLICT (content): Merge conflict in .gitignore
+Automatic merge failed; fix conflicts and then commit the result.
+
+ 
+
+                     ''' (((ANTES DE ENVIAR O PROJETO, PRA PLATAFORMA E PRO CLIENTE, 'REVISAR O TIME ZONE' e
+                       o 'SECRET KEY'))) '''
+
+                    '''AJUSTAR OS  MINUTOS INICIAR SCHEDULER, após os testes'''
+                     
+                    '''implementar Se você usar exclusão lógica, será necessário implementar rotinas 
+                       de limpeza periódica para remover registros obsoletos do banco.'''
+
+
+                  '''ALTER ROLE seu_usuario SET timezone TO 'UTC';
+                     Ao criar o Bd Postgres -ver se vai mudar'''
+
