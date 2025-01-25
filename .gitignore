@@ -20,10 +20,7 @@ dhenv/
 
 
 login=gentil, senha=123vilce
-(dhenv) PS C:\Users\genti\OneDrive\Documentos\gestao_eventos> git merge ultimos-ajustes 
-Auto-merging .gitignore
-CONFLICT (content): Merge conflict in .gitignore
-Automatic merge failed; fix conflicts and then commit the result.
+ 
 
  
 
