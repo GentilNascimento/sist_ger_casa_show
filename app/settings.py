@@ -5,6 +5,7 @@ import os  #modulo python p interagir c o sistema.
 from pathlib import Path
 from site import USER_BASE
 from decouple import config
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -74,8 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'app.wsgi.application'
 
 
-from decouple import config
-import dj_database_url
+ 
 
 DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))
