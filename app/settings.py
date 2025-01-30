@@ -79,12 +79,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
  
 
 DATABASES = {
-    'default': {
-        **dj_database_url.config(default=config('DATABASE_URL')),
-        'OPTIONS': {
-            'client_encoding': 'UTF8',
-        },
-    }
+    'default':dj_database_url.config(default=config('DATABASE_URL'))         
 }
 
 
