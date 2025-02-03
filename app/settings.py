@@ -24,7 +24,7 @@ WHATS_GW_APIKEY = config('WHATS_GW_APIKEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost, 127.0.0.1').split(',')
 
 
 # Application definition
@@ -80,9 +80,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default':dj_database_url.config(
-        default=config('DATABASE_URL'),
-        engine='django.db.backends.postgresql' 
-    )        
+        default=config('DATABASE_URL')               
 }
 
 
