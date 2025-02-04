@@ -26,6 +26,12 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost, 127.0.0.1').split(',')
 
+DATABASES = {
+    'default':dj_database_url.config(default=config('DATABASE_URL'))              
+}
+
+CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
+
 
 # Application definition
 
@@ -75,13 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-
- 
-
-DATABASES = {
-    'default':dj_database_url.config(
-        default=config('DATABASE_URL')               
-}
 
 
 # Password validation
