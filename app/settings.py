@@ -20,7 +20,6 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 WHATS_GW_APIKEY = config('WHATS_GW_APIKEY')
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
