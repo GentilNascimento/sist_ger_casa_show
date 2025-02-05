@@ -6,7 +6,7 @@ from pathlib import Path
 from site import USER_BASE
 from decouple import config
 import dj_database_url
-
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +25,23 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost, 127.0.0.1').split(',')
 
-DATABASES = {
-    'default':dj_database_url.config(default=config('DATABASE_URL'))              
-}
+DATABASE_URL = config('DATABASE_URL')
+
+if DATABASE_URL:
+    url = urlparse(DATABASE_URL)
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': url.path[1:],  # Retira a barra inicial
+            'USER': url.username,
+            'PASSWORD': url.password,
+            'HOST': url.hostname,
+            'PORT': url.port,
+        }
+    }
+else:
+    raise ValueError("DATABASE_URL not set in environment variables")
 
 CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
 
