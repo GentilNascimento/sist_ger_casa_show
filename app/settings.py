@@ -22,13 +22,19 @@ WHATS_GW_APIKEY = config('WHATS_GW_APIKEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost, 127.0.0.1').split(',')
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS', 
+    default='localhost,127.0.0.1,dhproducoes-show.up.railway.app'
+).split(',')
 
 DATABASES = {
     'default':dj_database_url.config(default=config('DATABASE_URL'))
 }
 
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://127.0.0.1').split(',')
+CSRF_TRUSTED_ORIGINS = config(
+    'CSRF_TRUSTED_ORIGINS', 
+    default='https://127.0.0.1,https://dhproducoes-show.up.railway.app'
+).split(',')
 
 
 
